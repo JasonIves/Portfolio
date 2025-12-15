@@ -1,0 +1,7 @@
+---
+layout: post
+title: "DATA*6100 - Introduction to Data Science"
+date: 2025-12-15
+tags: [data6100, python, neural network, kaggle]
+---
+{% include IvesJ_DATA6100_F25_FinalProject.md %}
