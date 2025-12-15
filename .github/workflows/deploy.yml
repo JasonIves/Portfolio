@@ -20,27 +20,28 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Ruby (if you're using Jekyll)
+      # Step 2: Set up Ruby (if you're using Jekyll, remove for static files)
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2 # Adjust the Ruby version as per your project
+          ruby-version: 3.2 # Adjust Ruby version based on your project
 
-      # Step 3: Install dependencies (specific to Jekyll/Bundler)
+      # Step 3: Install dependencies (if you're using Jekyll)
       - name: Install dependencies
         run: |
           gem install bundler
           bundle install
 
-      # Step 4: Build the site (or use your framework-specific build steps)
+      # Step 4: Build the site
       - name: Build the site
         run: |
           JEKYLL_ENV=production bundle exec jekyll build
 
-      # Step 5: Upload the build artifact for GitHub Pages
+      # Step 5: Upload the artifact for GitHub Pages
       - name: Upload Artifact for Pages
-        uses: actions/upload-pages-artifact@v4 # Use v4
-          path: ./_site # Specify the site’s build directory
+        uses: actions/upload-pages-artifact@v4
+        with: # Indentation fixed here!
+          path: ./_site # Specify the site's build directory
 
   deploy:
     needs: build
@@ -50,6 +51,6 @@ jobs:
       id-token: write
 
     steps:
-      # Step 6: Deploy the artifact to GitHub Pages
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
