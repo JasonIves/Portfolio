@@ -9,7 +9,7 @@
 [Assignment 1 - Important Factors in Salary Determination](IvesJason_DATA6200_F25_Assignment1.html)
 
 ### GEOG6480 - GIS and Spatial Analysis
-[Lab 02 - Least Cost Pathways of Adirondak Summit Hiking Trails](IvesJason_DATA6200_F25_Assignment1.html)
+[Lab 02 - Least Cost Pathways of Adirondak Summit Hiking Trails](Adirondak_Least_Cost_Summits.png)
 
 [Lab 02 - Project Flowchart](Lab02.drawio.png)
 
