@@ -3,33 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Your Name - Developer Portfolio</title>
+    
     <style>
+        /* General Reset and Base Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f9; /* Very light, off-white background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Container for Centering and Max-Width */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2c3e50; /* Deep blue/charcoal for a professional look */
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Main Content Section Styles */
+        main {
+            background-color: white;
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Project Section Styling */
+        .projects h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db; /* A nice contrasting blue line */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-list {
+            list-style: none; /* Remove default bullet points */
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 20px;
+        }
+
+        .project-item {
+            background-color: #ecf0f1; /* Light gray background for items */
+            padding: 20px;
+            border-radius: 6px;
+            transition: transform 0.2s, box-shadow 0.2s;
             text-align: center;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 2rem;
+
+        .project-item:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
-        main {
-            padding: 1rem;
+
+        .project-item a {
+            text-decoration: none;
+            color: #3498db; /* Blue link color */
+            font-weight: bold;
+            display: block; /* Make the whole block clickable */
+            padding: 10px 0;
+        }
+
+        .project-item a:hover {
+            color: #2980b9; /* Slightly darker blue on hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #7f8c8d; /* Subtle gray text */
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-    </header>
-    <main>
-        <p>This is my portfolio site, showcasing some of my work.</p>
-        <ul>
-            <li><a href="README.md">View README</a></li>
-        </ul>
-    </main>
+    <div class="container">
+        <header>
+            <h1>[Your Name/Alias]</h1>
+            <p>Front-End Developer | Web Designer | Technical Writer</p>
+        </header>
+
+        <main>
+            <section class="projects">
+                <h2>My Work</h2>
+                <ul class="project-list">
+                    <li class="project-item">
+                        <h3>Markdown Documentation</h3>
+                        <p>An example of technical writing or documentation in a .md file.</p>
+                        <a href="./docs/readme-example.md" target="_blank">View .md Document</a>
+                    </li>
+
+                    <li class="project-item">
+                        <h3>Simple HTML Layout</h3>
+                        <p>A demonstration of basic HTML structure and styling skills.</p>
+                        <a href="./html/simple-layout.html" target="_blank">View HTML Page</a>
+                    </li>
+
+                    <li class="project-item">
+                        <h3>Design Mockup/Chart</h3>
+                        <p>A visual asset demonstrating design or data presentation.</p>
+                        <a href="./images/data-chart.png" target="_blank">View Image (PNG)</a>
+                    </li>
+
+                    <li class="project-item">
+                        <h3>Project Screenshot</h3>
+                        <p>A screenshot of a larger project or application interface.</p>
+                        <a href="./images/app-screenshot.jpg" target="_blank">View Image (JPG)</a>
+                    </li>
+
+                    </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+            <p>Designed with 💙 by <a href="https://github.com/google/gemini" target="_blank">Gemini</a></p>
+        </footer>
+    </div>
 </body>
 </html>
