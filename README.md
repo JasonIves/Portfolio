@@ -13,5 +13,5 @@
 
 [Lab 02 - Project Flowchart](Lab02.drawio.png)
 
-[Lab 03 - Analysis of LiDAR Data Processing in ArcGIS Pro](Lab02.drawio.png)
+[Lab 03 - Analysis of LiDAR Data Processing in ArcGIS Pro](Turkey_Point_LiDAR_3_Panels.png)
 
