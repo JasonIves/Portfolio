@@ -2,6 +2,8 @@
 
 ## Master of Data Science - University of Guelph - Fall 2025
 
+---
+
 ### DATA6100 - Introduction to Data Science
 [Final Project - Predicting Cuisine Type by Ingredients](IvesJ_DATA6100_F25_FinalProject.md)
 
