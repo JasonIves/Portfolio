@@ -10,5 +10,8 @@
 
 ### GEOG6480 - GIS and Spatial Analysis
 [Lab 02 - Least Cost Pathways of Adirondak Summit Hiking Trails](IvesJason_DATA6200_F25_Assignment1.html)
+
 [Lab 02 - Lab Flowchart](Lab02.drawio.png)
+
 [Lab 03 - Analysis of LiDAR Data Processing in ArcGIS Pro](Lab02.drawio.png)
+
