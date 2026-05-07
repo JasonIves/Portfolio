@@ -3,183 +3,595 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jason Ives - Portfolio</title>
-    
+    <title>Jason Ives — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
-        /* General Reset and Base Styles */
+        /* ── Reset & Tokens ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:             #0d1117;
+            --bg-card:        #161b22;
+            --bg-card-hover:  #1c2230;
+            --border:         rgba(255,255,255,0.08);
+            --border-hover:   rgba(79,156,249,0.30);
+            --accent:         #4f9cf9;
+            --accent-end:     #00d4aa;
+            --text:           #e6edf3;
+            --text-muted:     #8b949e;
+            --shadow-card:    0 8px 32px rgba(0,0,0,0.45);
+            --radius:         12px;
+            --transition:     0.2s ease;
+        }
+
+        /* ── Base ── */
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9; /* Very light, off-white background */
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            min-height: 100vh;
         }
 
-        /* Container for Centering and Max-Width */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ── Layout ── */
+        .site-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
         }
 
-        /* Header Styles */
-        header {
-            background-color: #2c3e50; /* Deep blue/charcoal for a professional look */
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            border-radius: 8px 8px 0 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* ─────────────────────────────────
+           HEADER
+        ───────────────────────────────── */
+        .site-header {
+            padding: 64px 0 52px;
+            border-bottom: 1px solid var(--border);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
+        .header-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
         }
 
-        header p {
-            margin-top: 5px;
-            font-size: 1.1em;
-            opacity: 0.9;
+        .header-name h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* Main Content Section Styles */
-        main {
-            background-color: white;
-            padding: 40px;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        .header-name .title {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 400;
         }
 
-        /* Project Section Styling */
-        .projects h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db; /* A nice contrasting blue line */
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+        /* Action buttons */
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding-top: 4px;
         }
 
-        .project-list {
-            list-style: none; /* Remove default bullet points */
-            padding: 0;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+            text-decoration: none !important;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0d1117;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #6aabff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79,156,249,0.40);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+        .btn-outline:hover {
+            background: var(--bg-card);
+            color: var(--text);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        /* About Me */
+        .about-me {
+            max-width: 720px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .about-me strong { color: var(--text); font-weight: 600; }
+
+        /* ─────────────────────────────────
+           SECTIONS
+        ───────────────────────────────── */
+        .section { margin-top: 60px; }
+
+        .section-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .section-heading {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .section-heading::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ─────────────────────────────────
+           PROJECT GRID
+        ───────────────────────────────── */
+        .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
-        
-        .project-item {
-            background-color: #ecf0f1; /* Light gray background for items */
-            padding: 20px;
-            border-radius: 6px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-align: center;
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--border-hover);
         }
 
-        .project-item:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        /* Thumbnail area */
+        .card-thumb {
+            width: 100%;
+            aspect-ratio: 16 / 8;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--border);
+            background: #0d1117;
         }
 
-        .project-item a {
+        .card-thumb-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 8;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, #131c33 0%, #0e1a30 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        /* Card body */
+        .card-body {
+            padding: 22px 22px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .card-body h3 {
+            font-size: 0.975rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        /* Links list */
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            flex: 1;
+        }
+
+        .card-link-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-size: 0.875rem;
+            line-height: 1.45;
+        }
+
+        .card-link-row .arrow {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .card-link-row a {
+            color: var(--accent);
+        }
+        .card-link-row a em {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.82em;
+        }
+
+        /* ─────────────────────────────────
+           SKILL BADGES
+        ───────────────────────────────── */
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.70rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        /* Badge colour palette */
+        .badge-python   { background: rgba(55,118,171,0.22); color: #79c0ff; border: 1px solid rgba(55,118,171,0.45); }
+        .badge-r        { background: rgba(39,109,195,0.22); color: #85c1e9; border: 1px solid rgba(39,109,195,0.45); }
+        .badge-jupyter  { background: rgba(243,118,38,0.18); color: #fb923c; border: 1px solid rgba(243,118,38,0.38); }
+        .badge-quarto   { background: rgba(93,156,219,0.18); color: #93c5fd; border: 1px solid rgba(93,156,219,0.38); }
+        .badge-shiny    { background: rgba(99,102,241,0.18); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.38); }
+        .badge-arcgis   { background: rgba(45,125,50,0.22);  color: #6ee7b7; border: 1px solid rgba(45,125,50,0.45); }
+        .badge-github   { background: rgba(139,92,246,0.18); color: #d2a8ff; border: 1px solid rgba(139,92,246,0.38); }
+        .badge-paper    { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.35); }
+        .badge-whitebox { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.38); }
+        .badge-colab    { background: rgba(251,188,4,0.13);  color: #fde68a; border: 1px solid rgba(251,188,4,0.30); }
+
+        /* ─────────────────────────────────
+           FOOTER
+        ───────────────────────────────── */
+        .site-footer {
+            margin-top: 80px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 22px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            transition: color var(--transition);
+        }
+        .footer-links a:hover {
+            color: var(--text);
             text-decoration: none;
-            color: #3498db; /* Blue link color */
-            font-weight: bold;
-            display: block; /* Make the whole block clickable */
-            padding: 10px 0;
         }
 
-        .project-item a:hover {
-            color: #2980b9; /* Slightly darker blue on hover */
-        }
-
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            color: #7f8c8d; /* Subtle gray text */
-            font-size: 0.9em;
-        }
-
-        footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
+        /* ─────────────────────────────────
+           RESPONSIVE
+        ───────────────────────────────── */
+        @media (max-width: 640px) {
+            .site-header   { padding: 40px 0 36px; }
+            .header-top    { flex-direction: column; }
+            .header-actions { padding-top: 0; }
+            .project-grid  { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Jason Ives</h1>
-            <p>Master's Candidate | Data Science | University of Guelph</p>
-        </header>
+<div class="site-wrapper">
 
-        <main>
-            <section class="projects">
-                <h2>Fall 2025</h2>
-                <ul class="project-list">
-                    <li class="project-item">
-                        <h3>Introduction to Data Science</h3>
-                        <p>Python - Jupyter Notebook</p>
-                        <a href="https://colab.research.google.com/drive/1e8XZiEVyD73jceLRPX0m_rrcFR-WRYei target="_blank"">Neural network classifier</a>
-                    </li>
+    <!-- ══════════════════════════════════
+         HEADER
+    ═══════════════════════════════════ -->
+    <header class="site-header">
+        <div class="header-top">
+            <div class="header-name">
+                <h1>Jason Ives</h1>
+                <p class="title">Senior Data Systems Architect &nbsp;·&nbsp; MDS Candidate, University of Guelph</p>
+            </div>
+            <div class="header-actions">
+                <!-- ↓ Replace href with the actual resume PDF path when ready -->
+                <a class="btn btn-primary" href="./docs/ives_jason_resume.pdf" download>
+                    <!-- Download icon -->
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download Resume
+                </a>
+                <a class="btn btn-outline" href="https://github.com/JasonIves" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <!-- ↓ Replace the LinkedIn URL slug with the correct profile -->
+                <a class="btn btn-outline" href="http://www.linkedin.com/in/jason-r-ives" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
 
-                    <li class="project-item">
-                        <h3>Data Manipulation and Visualization</h3>
-                        <p>R - Quarto</p>
-                        <a href="./html/IvesJason_DATA6200_F25_Assignment1.html" target="_blank">Analysing salary factors</a>
-                        <p>R - Shiny</p>
-                        <a href="./docs/DATA6200_F25_Group4_Final_Report.pdf" target="_blank">Ground logistics dashboard</a>
-                    </li>
+        <p class="about-me">
+            <strong>Senior Data Systems Architect</strong> & <strong>Master of Data Science Candidate</strong> specializing in the intersection of global research operations and advanced analytics. Proven track record of developing Python-based automation and managing high-stakes data capture lifecycles across Africa and South Asia. Transitioning deep field experience into machine learning, AI research, ETL architecture, and geospatial modeling.
+        </p>
+    </header>
 
-                    <li class="project-item">
-                        <h3>GIS and Spatial Analysis</h3>
-                        <p>ArcGIS Pro</p>
-                        <a href="./images/Adirondak_Least_Cost_Summits.png" target="_blank">Least-cost pathway analysis</a>
-                        <a href="./images/Turkey_Point_LiDAR_3_Panels.png" target="_blank">LiDAR processing methods</a>
-                    </li>
 
-                    </ul>
+    <!-- ══════════════════════════════════
+         FALL 2025
+    ═══════════════════════════════════ -->
+    <section class="section">
+        <p class="section-eyebrow">Academic Work</p>
+        <h2 class="section-heading">Fall 2025</h2>
 
-                <h2>Winter 2026</h2>
-                <ul class="project-list">
-                    <li class="project-item">
-                        <h3>Analysis of Big Data</h3>
-                        <p>Python - Jupyter Notebook</p>
-                        <a href="https://colab.research.google.com/drive/1ZqylyuJXztKuNTjfor_SYMW0iVHKaiDs?usp=sharing" target="_blank">Gated Recurrent Units Classifier</a>
-                    </li>
+        <div class="project-grid">
 
-                    <li class="project-item">
-                        <h3>Machine Learning for Sequences</h3>
-                        <p>ACL-Style Paper</p>
-                        <a href="./docs/data6400_hlp_final_report_final_20260410.pdf" target="_blank">V-BReE: A Variance-thresholded Blinded Refinement Ensemble for Multi-Agent LLM Reasoning</a>
-                        <p>Python</p>
-                        <a href="https://github.com/JasonIves/V-BReE" target="_blank">V-BReE</a>
-                        <p>Python - Jupyter Notebook</p>
-                        <a href="https://colab.research.google.com/drive/1bqVaN_cPq14h1aeevEvmCxSMgNBz9udM?usp=sharing" target="_blank">V-BReE Documentation and Template</a>
-                    </li>
+            <!-- Introduction to Data Science -->
+            <div class="project-card">
+                <div class="card-thumb-placeholder">🧠</div>
+                <div class="card-body">
+                    <h3>Introduction to Data Science</h3>
+                    <div class="card-links">
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="https://colab.research.google.com/drive/1e8XZiEVyD73jceLRPX0m_rrcFR-WRYei" target="_blank" rel="noopener noreferrer">Neural Network Classifier</a>
+                        </div>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-python">Python</span>
+						<span class="badge badge-python">PySpark</span>
+						<span class="badge badge-python">PyTorch</span>
+                        <span class="badge badge-jupyter">Jupyter Notebook</span>
+                        <span class="badge badge-colab">Colab</span>
+                    </div>
+                </div>
+            </div>
 
-                    <li class="project-item">
-                        <h3>Environmental Modeling</h3>
-                        <p>Paper</p>
-                        <a href="./docs/geog6550_final_project_jasonIves_final.pdf" target="_blank">ST-MELD: Spatiotemporal Model-Estimated Lava Distribution</a>
-                        <p>Python and Whitebox Workflows</p>
-                        <a href="https://github.com/JasonIves/geog_6550_st-meld" target="_blank">ST-MELD</a>
-                    </li>
-                    
-                    </ul>
-            </section>
-        </main>
+            <!-- Data Manipulation & Visualization -->
+            <div class="project-card">
+                <div class="card-thumb-placeholder">📊</div>
+                <div class="card-body">
+                    <h3>Data Manipulation &amp; Visualization</h3>
+                    <div class="card-links">
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="./html/IvesJason_DATA6200_F25_Assignment1.html" target="_blank" rel="noopener noreferrer">Analysing Salary Factors</a>
+                        </div>
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="./docs/DATA6200_F25_Group4_Final_Report.pdf" target="_blank" rel="noopener noreferrer">Ground Logistics Dashboard Report</a>
+                        </div>
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="https://github.com/JasonIves/Data6200_F25_FinalProject" target="_blank" rel="noopener noreferrer">Logistics Dashboard - Source Code</a>
+                        </div>
+						https://github.com/JasonIves/Data6200_F25_FinalProject
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-r">R</span>
+                        <span class="badge badge-quarto">Quarto</span>
+                        <span class="badge badge-shiny">Shiny</span>
+                    </div>
+                </div>
+            </div>
 
-        <footer>
-            <p>&copy; 2026 Jason Ives. All rights reserved.</p>
-            <p>Designed with 💙 by <a href="https://github.com/google/gemini" target="_blank">Gemini</a></p>
-        </footer>
-    </div>
+            <!-- GIS & Spatial Analysis -->
+            <div class="project-card">
+                <!--
+                    Thumbnail: shows the LiDAR composite image.
+                    Replace src path if the file is renamed.
+                    The placeholder emoji shows if the image is not yet present.
+                -->
+                <img class="card-thumb"
+                     src="./images/Turkey_Point_LiDAR_3_Panels.png"
+                     alt="LiDAR processing study — Turkey Point composite"
+                     onerror="this.replaceWith(document.getElementById('gis-placeholder').content.cloneNode(true))">
+                <template id="gis-placeholder">
+                    <div class="card-thumb-placeholder">🗺️</div>
+                </template>
+                <div class="card-body">
+                    <h3>GIS &amp; Spatial Analysis</h3>
+                    <div class="card-links">
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="./images/Adirondak_Least_Cost_Summits.png" target="_blank" rel="noopener noreferrer">Least-Cost Pathway Analysis Example</a>
+                        </div>
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="./images/Turkey_Point_LiDAR_3_Panels.png" target="_blank" rel="noopener noreferrer">LiDAR Processing Methods Example</a>
+                        </div>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-arcgis">ArcGIS Pro</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         WINTER 2026
+    ═══════════════════════════════════ -->
+    <section class="section">
+        <p class="section-eyebrow">Academic Work</p>
+        <h2 class="section-heading">Winter 2026</h2>
+
+        <div class="project-grid">
+
+            <!-- Analysis of Big Data -->
+            <div class="project-card">
+                <div class="card-thumb-placeholder">⚡</div>
+                <div class="card-body">
+                    <h3>Analysis of Big Data</h3>
+                    <div class="card-links">
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="https://colab.research.google.com/drive/1ZqylyuJXztKuNTjfor_SYMW0iVHKaiDs?usp=sharing" target="_blank" rel="noopener noreferrer">Gated Recurrent Units Classifier</a>
+                        </div>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-python">Python</span>
+                        <span class="badge badge-jupyter">Jupyter Notebook</span>
+                        <span class="badge badge-colab">Colab</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Machine Learning for Sequences — V-BReE -->
+            <div class="project-card">
+                <div class="card-thumb-placeholder">🤖</div>
+                <div class="card-body">
+                    <h3>Machine Learning for Sequences</h3>
+                    <div class="card-links">
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="./docs/data6400_hlp_final_report_final_20260410.pdf" target="_blank" rel="noopener noreferrer">V-BReE: A Variance-thresholded Blinded Refinement Ensemble for Multi-Agent LLM Reasoning</a>
+                        </div>
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="https://github.com/JasonIves/V-BReE" target="_blank" rel="noopener noreferrer">V-BReE — Source Code</a>
+                        </div>
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="https://colab.research.google.com/drive/1bqVaN_cPq14h1aeevEvmCxSMgNBz9udM?usp=sharing" target="_blank" rel="noopener noreferrer">V-BReE Documentation &amp; Template</a>
+                        </div>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-python">Python</span>
+						<span class="badge badge-python">HuggingFace</span>
+                        <span class="badge badge-colab">Colab</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environmental Modeling — ST-MELD -->
+            <div class="project-card">
+                <!--
+                    Thumbnail: add a preview image for ST-MELD.
+                    Suggested filename: ./images/ST-MELD_preview.png
+                    Placeholder emoji shows until the image is present.
+                -->
+                <img class="card-thumb"
+                     src="./images/ST-MELD_preview.png"
+                     alt="ST-MELD — Spatiotemporal model-estimated lava distribution"
+                     onerror="this.replaceWith(document.getElementById('stmeld-placeholder').content.cloneNode(true))">
+                <template id="stmeld-placeholder">
+                    <div class="card-thumb-placeholder">🌋</div>
+                </template>
+                <div class="card-body">
+                    <h3>Environmental Modeling</h3>
+                    <div class="card-links">
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="./docs/geog6550_final_project_jasonIves_final.pdf" target="_blank" rel="noopener noreferrer">ST-MELD: Spatiotemporal Model-Estimated Lava Distribution</a>
+                        </div>
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="https://github.com/JasonIves/geog_6550_st-meld" target="_blank" rel="noopener noreferrer">ST-MELD — Source Code</a>
+                        </div>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-python">Python</span>
+                        <span class="badge badge-whitebox">Whitebox Workflows</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════ -->
+    <footer class="site-footer">
+        <span>&copy; 2026 Jason Ives. All rights reserved.</span>
+        <nav class="footer-links" aria-label="Social links">
+            <a href="https://github.com/JasonIves" target="_blank" rel="noopener noreferrer">
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                GitHub
+            </a>
+            <!-- ↓ Update slug to the correct LinkedIn profile URL -->
+            <a href="http://www.linkedin.com/in/jason-r-ives" target="_blank" rel="noopener noreferrer">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </nav>
+    </footer>
+
+</div>
 </body>
 </html>
