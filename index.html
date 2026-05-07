@@ -292,9 +292,11 @@
         .badge-shiny    { background: rgba(99,102,241,0.18); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.38); }
         .badge-arcgis   { background: rgba(45,125,50,0.22);  color: #6ee7b7; border: 1px solid rgba(45,125,50,0.45); }
         .badge-github   { background: rgba(139,92,246,0.18); color: #d2a8ff; border: 1px solid rgba(139,92,246,0.38); }
-        .badge-paper    { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.35); }
+        .badge-pytorch  { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.35); }
+		.badge-pyspark    { background: rgba(239,68,68,0.15);  color: #f87171; border: 1px solid rgba(239,68,68,0.33); }
         .badge-whitebox { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.38); }
         .badge-colab    { background: rgba(251,188,4,0.13);  color: #fde68a; border: 1px solid rgba(251,188,4,0.30); }
+		.badge-qgis     { background: rgba(132,204,22,0.14); color: #a3e635; border: 1px solid rgba(132,204,22,0.32); }
 
         /* ─────────────────────────────────
            FOOTER
@@ -395,7 +397,13 @@
 
             <!-- Introduction to Data Science -->
             <div class="project-card">
-                <div class="card-thumb-placeholder">🧠</div>
+                <img class="card-thumb"
+                     src="./images/data6100_final_img1.png"
+                     alt="Introduction to Data Science"
+                     onerror="this.replaceWith(document.getElementById('6100-placeholder').content.cloneNode(true))">
+                <template id="6100-placeholder">
+                	<div class="card-thumb-placeholder">🧠</div>
+                </template>
                 <div class="card-body">
                     <h3>Introduction to Data Science</h3>
                     <div class="card-links">
@@ -406,8 +414,6 @@
                     </div>
                     <div class="skill-badges">
                         <span class="badge badge-python">Python</span>
-						<span class="badge badge-python">PySpark</span>
-						<span class="badge badge-python">PyTorch</span>
                         <span class="badge badge-jupyter">Jupyter Notebook</span>
                         <span class="badge badge-colab">Colab</span>
                     </div>
@@ -416,7 +422,13 @@
 
             <!-- Data Manipulation & Visualization -->
             <div class="project-card">
-                <div class="card-thumb-placeholder">📊</div>
+                <img class="card-thumb"
+                     src="./images/data6200_final_img1.png"
+                     alt="Data Manipulation &amp; Visualization"
+                     onerror="this.replaceWith(document.getElementById('6200-placeholder').content.cloneNode(true))">
+                <template id="6200-placeholder">
+                	<div class="card-thumb-placeholder">📊</div>
+                </template>
                 <div class="card-body">
                     <h3>Data Manipulation &amp; Visualization</h3>
                     <div class="card-links">
@@ -432,7 +444,6 @@
                             <span class="arrow">▶</span>
                             <a href="https://github.com/JasonIves/Data6200_F25_FinalProject" target="_blank" rel="noopener noreferrer">Logistics Dashboard - Source Code</a>
                         </div>
-						https://github.com/JasonIves/Data6200_F25_FinalProject
                     </div>
                     <div class="skill-badges">
                         <span class="badge badge-r">R</span>
@@ -444,14 +455,9 @@
 
             <!-- GIS & Spatial Analysis -->
             <div class="project-card">
-                <!--
-                    Thumbnail: shows the LiDAR composite image.
-                    Replace src path if the file is renamed.
-                    The placeholder emoji shows if the image is not yet present.
-                -->
                 <img class="card-thumb"
-                     src="./images/Turkey_Point_LiDAR_3_Panels.png"
-                     alt="LiDAR processing study — Turkey Point composite"
+                     src="./images/geog6480_lab3_img1.png"
+                     alt="GIS &amp; Spatial Analysis"
                      onerror="this.replaceWith(document.getElementById('6480-placeholder').content.cloneNode(true))">
                 <template id="6480-placeholder">
                     <div class="card-thumb-placeholder">🗺️</div>
@@ -469,6 +475,7 @@
                         </div>
                     </div>
                     <div class="skill-badges">
+						<span class="badge badge-python">Python</span>
                         <span class="badge badge-arcgis">ArcGIS Pro</span>
                     </div>
                 </div>
@@ -506,6 +513,8 @@
                     </div>
                     <div class="skill-badges">
                         <span class="badge badge-python">Python</span>
+						<span class="badge badge-python">PySpark</span>
+						<span class="badge badge-python">PyTorch</span>
                         <span class="badge badge-jupyter">Jupyter Notebook</span>
                         <span class="badge badge-colab">Colab</span>
                     </div>
@@ -569,6 +578,7 @@
                     <div class="skill-badges">
                         <span class="badge badge-python">Python</span>
                         <span class="badge badge-whitebox">Whitebox Workflows</span>
+						<span class="badge badge-qgis">QGIS</span>
                     </div>
                 </div>
             </div>
