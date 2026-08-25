@@ -285,7 +285,7 @@
         }
 
         /* Badge colour palette */
-        .badge-python   { background: rgba(55,118,171,0.22); color: #79c0ff; border: 1px solid rgba(55,118,171,0.45); }
+		.badge-python   { background: rgba(55,118,171,0.22); color: #79c0ff; border: 1px solid rgba(55,118,171,0.45); }
         .badge-r        { background: rgba(39,109,195,0.22); color: #85c1e9; border: 1px solid rgba(39,109,195,0.45); }
         .badge-jupyter  { background: rgba(243,118,38,0.18); color: #fb923c; border: 1px solid rgba(243,118,38,0.38); }
         .badge-quarto   { background: rgba(93,156,219,0.18); color: #93c5fd; border: 1px solid rgba(93,156,219,0.38); }
@@ -293,11 +293,15 @@
         .badge-arcgis   { background: rgba(45,125,50,0.22);  color: #6ee7b7; border: 1px solid rgba(45,125,50,0.45); }
         .badge-github   { background: rgba(139,92,246,0.18); color: #d2a8ff; border: 1px solid rgba(139,92,246,0.38); }
         .badge-pytorch  { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.35); }
-		.badge-pyspark    { background: rgba(239,68,68,0.15);  color: #f87171; border: 1px solid rgba(239,68,68,0.33); }
+        .badge-pyspark  { background: rgba(239,68,68,0.15);  color: #f87171; border: 1px solid rgba(239,68,68,0.33); }
         .badge-whitebox { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.38); }
         .badge-colab    { background: rgba(251,188,4,0.13);  color: #fde68a; border: 1px solid rgba(251,188,4,0.30); }
-		.badge-qgis     { background: rgba(132,204,22,0.14); color: #a3e635; border: 1px solid rgba(132,204,22,0.32); }
-		.badge-hf { background: rgba(255,210,30,0.14); color: #ffd21e; border: 1px solid rgba(255,210,30,0.32); }
+        .badge-qgis     { background: rgba(132,204,22,0.14); color: #a3e635; border: 1px solid rgba(132,204,22,0.32); }
+        .badge-hf       { background: rgba(255,210,30,0.14); color: #ffd21e; border: 1px solid rgba(255,210,30,0.32); }
+        .badge-rust     { background: rgba(222,165,132,0.18); color: #f0a27a; border: 1px solid rgba(222,165,132,0.38); }
+        .badge-lidar    { background: rgba(56,189,248,0.15);  color: #38bdf8; border: 1px solid rgba(56,189,248,0.35); }
+        .badge-cline    { background: rgba(236,72,153,0.16);  color: #f472b6; border: 1px solid rgba(236,72,153,0.36); }
+        .badge-claude   { background: rgba(217,119,6,0.18);   color: #fbbf24; border: 1px solid rgba(217,119,6,0.38); }
 
         /* ─────────────────────────────────
            FOOTER
@@ -588,6 +592,45 @@
         </div>
     </section>
 
+
+    <!-- ══════════════════════════════════
+         SUMMER 2026
+    ═══════════════════════════════════ -->
+    <section class="section">
+        <p class="section-eyebrow">Academic Work</p>
+        <h2 class="section-heading">Summer 2026</h2>
+
+        <div class="project-grid">
+
+            <!--  -->
+			<div class="project-card">
+				<img class="card-thumb"
+					 src="./images/dales_example.png"
+					 alt="Data Science Project"
+					 onerror="this.replaceWith(document.getElementById('6700-placeholder').content.cloneNode(true))">
+				<template id="6700-placeholder">
+					<div class="card-thumb-placeholder">🎯</div>
+				</template>
+                <div class="card-body">
+                    <h3>Data Science Project</h3>
+                    <div class="card-links">
+                        <div class="card-link-row">
+                            <span class="arrow">▶</span>
+                            <a href="https://github.com/JasonIves/lidar_point_cloud_classifier" target="_blank" rel="noopener noreferrer">Lidar Point Cloud Semanitc Segmentation Classifer</a>
+                        </div>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-python">Python</span>
+						<span class="badge badge-rust">Rust</span>
+						<span class="badge badge-whitebox">Whitebox Next Gen</span>
+                        <span class="badge badge-cline">Cline</span>
+                        <span class="badge badge-claude">Claude</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <!-- ══════════════════════════════════
          FOOTER
